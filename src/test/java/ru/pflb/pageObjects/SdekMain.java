@@ -9,10 +9,9 @@ import javax.swing.*;
 
 public class SdekMain {
     private static String baseUrl = "https://www.cdek.ru/";
-    private static String fromMoscow = "//button[@data-test=\"direction-cities-from-0\"]";
-    private static String toPiter = "//button[@data-test=\"direction-cities-to-1\"]";
+    private static String cityShortcut = "//*[text()='%s' and contains(@data-test, '%s')]";
     private static String boxSize = "//div[@class=\"cdek-dropdown-trigger__control\"]";
-    private static String box = "//div[@data-test=\"direction-dimension-item-3\"]";
+    private static String box = "//div[contains(@class, 'choice-item')]//p[text()='%s']";
     private static String orderButton = "//button[@data-test=\"order-widget-btn\"]";
 
     private WebDriver driver;
@@ -25,20 +24,16 @@ public class SdekMain {
         driver.get(baseUrl + "/ru");
     }
 
-    public void clickFromMoscow() {
-        driver.findElement(By.xpath("//button[@data-test=\"direction-cities-from-0\"]")).click();
-    }
-
-    public void clickToPiter() {
-        driver.findElement(By.xpath("//button[@data-test=\"direction-cities-to-1\"]")).click();
+    public void clickCityShortcut(String name, String direction) {
+        driver.findElement(By.xpath(String.format(cityShortcut, name, direction))).click();
     }
 
     public void clickBoxMenu() {
-        driver.findElement(By.xpath("//div[@class=\"cdek-dropdown-trigger__control\"]")).click();
+        driver.findElement(By.xpath(boxSize)).click();
     }
 
-    public void clickMenuOption() {
-        WebElement element = driver.findElement(By.xpath("//div[@data-test=\"direction-dimension-item-3\"]"));
+    public void clickMenuOption(String option) {
+        WebElement element = driver.findElement(By.xpath(String.format(box, option)));
         element.click();
     }
 
@@ -49,7 +44,7 @@ public class SdekMain {
     }
 
     public void clickCheck() {
-        driver.findElement(By.xpath("//button[@data-test=\"order-widget-btn\"]")).click();
+        driver.findElement(By.xpath(orderButton)).click();
     }
 
 }
