@@ -6,16 +6,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class SdekCheck {
-    private static String summ = "//span[@class=\"total\"]";
+    private static final By summ = By.xpath("//span[@class=\"total\"]");
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public SdekCheck(WebDriver driver) {
         this.driver = driver;
     }
 
     public void checkSumm(String cost) {
-        WebElement element = driver.findElement(By.xpath(summ));
+        WebElement element = driver.findElement(summ);
         Assertions.assertEquals(element.getText(), cost);
     }
 }

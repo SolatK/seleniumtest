@@ -8,13 +8,13 @@ import org.openqa.selenium.interactions.Actions;
 import javax.swing.*;
 
 public class SdekMain {
-    private static String baseUrl = "https://www.cdek.ru/";
-    private static String cityShortcut = "//*[text()='%s' and contains(@data-test, '%s')]";
-    private static String boxSize = "//div[@class=\"cdek-dropdown-trigger__control\"]";
-    private static String box = "//div[contains(@class, 'choice-item')]//p[text()='%s']";
-    private static String orderButton = "//button[@data-test=\"order-widget-btn\"]";
+    private static final String baseUrl = "https://www.cdek.ru/";
+    private static final String cityShortcut = "//*[text()='%s' and contains(@data-test, '%s')]";
+    private static final String box = "//div[contains(@class, 'choice-item')]//p[text()='%s']";
+    private static final By boxSize = By.xpath("//div[@class=\"cdek-dropdown-trigger__control\"]");
+    private static final By orderButton = By.xpath("//button[@data-test=\"order-widget-btn\"]");
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public SdekMain(WebDriver driver) {
         this.driver = driver;
@@ -29,7 +29,7 @@ public class SdekMain {
     }
 
     public void clickBoxMenu() {
-        driver.findElement(By.xpath(boxSize)).click();
+        driver.findElement(boxSize).click();
     }
 
     public void clickMenuOption(String option) {
@@ -44,7 +44,7 @@ public class SdekMain {
     }
 
     public void clickCheck() {
-        driver.findElement(By.xpath(orderButton)).click();
+        driver.findElement(orderButton).click();
     }
 
 }

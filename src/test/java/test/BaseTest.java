@@ -14,7 +14,6 @@ public class BaseTest {
     SdekMain mainPage;
     SdekCheck checkPage;
 
-
     @BeforeEach
     public void setup() {
         driver = new ChromeDriver();
