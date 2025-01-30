@@ -1,11 +1,11 @@
-package ru.pflb.test;
+package test;
 
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import ru.pflb.pageObjects.SdekCheck;
-import ru.pflb.pageObjects.SdekMain;
+import pageObjects.SdekCheck;
+import pageObjects.SdekMain;
 
 import java.util.concurrent.TimeUnit;
 

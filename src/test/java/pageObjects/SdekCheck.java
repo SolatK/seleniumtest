@@ -1,4 +1,4 @@
-package ru.pflb.pageObjects;
+package pageObjects;
 
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;

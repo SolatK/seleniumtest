@@ -1,4 +1,4 @@
-package ru.pflb.test;
+package test;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
